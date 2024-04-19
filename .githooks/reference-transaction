@@ -1,0 +1,10 @@
+#!/bin/bash
+set -eu
+
+while read oldvalue newvalue refname
+do
+    if [ $1 = committed -a $refname = refs/remotes/origin/main ]
+    then
+        exec .githooks/post-push
+    fi
+done

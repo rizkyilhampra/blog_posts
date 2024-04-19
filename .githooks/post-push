@@ -1,0 +1,44 @@
+#!/bin/bash
+
+get_parent_dir() {
+    echo "$(dirname "$(pwd)")"
+}
+
+get_last_commit_message() {
+    echo $(git log -1 --pretty=%B)
+}
+
+perform_git_operations() {
+    local dir=$1
+    local last_commit_message=$2
+    local option="-C ${dir} --work-tree ${dir} --git-dir ${dir}/.git"
+    local submodule_dirs="$(git ${option} submodule | awk '{print $2}')"
+
+    git ${option} add ${submodule_dirs}
+    git ${option} commit ${submodule_dirs} -m "${last_commit_message}"
+    git ${option} push
+}
+
+update_git_submodules() {
+    local dir=$1
+    local option="-C ${dir} --work-tree ${dir} --git-dir ${dir}/.git"
+    git ${option} submodule update --remote --merge
+}
+
+parent_dir=$(get_parent_dir)
+last_commit_message=$(get_last_commit_message)
+
+perform_git_operations ${parent_dir} ${last_commit_message}
+
+blog_dir="$(fd --base-directory "${HOME}" --type d "rizkyilhampra.github.io" | head -n 1)"
+
+if [ -z "${blog_dir}" ]; then
+    echo "rizkyilhampra.github.io not found in ${HOME}"
+    exit 1
+fi
+
+blog_dir="${HOME}/${blog_dir}"
+
+update_git_submodules ${blog_dir}
+
+perform_git_operations ${blog_dir} ${last_commit_message}
