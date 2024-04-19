@@ -1,19 +1,12 @@
 #!/bin/bash
 
-get_parent_dir() {
-    echo "$(dirname "$(pwd)")"
-}
-
-get_last_commit_message() {
-    echo $(git log -1 --pretty=%B)
-}
-
 perform_git_operations() {
     local dir=$1
     local last_commit_message=$2
     local option="-C ${dir} --work-tree ${dir} --git-dir ${dir}/.git"
     local submodule_dirs="$(git ${option} submodule | awk '{print $2}')"
 
+    git ${option} checkout main || git ${option} checkout master
     git ${option} add ${submodule_dirs}
     git ${option} commit ${submodule_dirs} -m "${last_commit_message}"
     git ${option} push
@@ -22,11 +15,11 @@ perform_git_operations() {
 update_git_submodules() {
     local dir=$1
     local option="-C ${dir} --work-tree ${dir} --git-dir ${dir}/.git"
-    git ${option} submodule update --remote --merge
+    git ${option} submodule update --remote
 }
 
-parent_dir=$(get_parent_dir)
-last_commit_message=$(get_last_commit_message)
+parent_dir=$(dirname "$(pwd)")
+last_commit_message=$(git log -1 --pretty=%B)
 
 perform_git_operations ${parent_dir} ${last_commit_message}
 
@@ -40,5 +33,4 @@ fi
 blog_dir="${HOME}/${blog_dir}"
 
 update_git_submodules ${blog_dir}
-
 perform_git_operations ${blog_dir} ${last_commit_message}
