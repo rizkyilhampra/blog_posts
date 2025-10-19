@@ -19,4 +19,24 @@ Yap, ini adalah *common issue*. Hal yang paling gampang adalah lakukan *restart*
 
 > Di sinilah masalah kecil yang menjadi besar hanya karena modifikasi MySQL dan Apache *port* ke *value* lain dari yang semestinya, tapi anda tidak tau apa yang sebenarnya dilakukan, terlebih jika hanya berdasarkan informasi dari ChatGPT, *what a shame dawg*.
 
+## Cek alias
 
+```bash
+C:/xampp/apache/conf/extra/apache-xampp.conf
+```
+
+
+```conf
+    Alias /E-Klaim "C:/E-Klaim"
+    <Directory "C:/E-Klaim">
+        AllowOverride AuthConfig
+        Order allow,deny
+        Allow from all
+        Require all granted
+    </Directory>
+    
+    AliasMatch (?i)^/e-klaim(.*) /E-Klaim$1
+    AliasMatch (?i)^/eklaim(.*) /E-Klaim$1
+    AliasMatch (?i)^/e-claim(.*) /E-Klaim$1
+    AliasMatch (?i)^/eclaim(.*) /E-Klaim$1
+```
