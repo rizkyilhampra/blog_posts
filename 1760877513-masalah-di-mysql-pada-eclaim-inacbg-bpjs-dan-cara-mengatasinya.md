@@ -17,4 +17,4 @@ Cerita sedikit mengenai latar belakang mengapa tulisan ini di buat. Ada suatu ru
 
 Yap, ini adalah *common issue*. Hal yang paling gampang adalah lakukan *restart*. Tidak perlu hubungi seorang IT, anda dapat melakukannya sendiri, yang dilakukan hanya butuh ***restart*** komputer. *I know* cara lainnya adalah lakukan *mapping* untuk *port* baru atau *kill* *process* yang menggunakan *port* tersebut. Tapi ini butuh *expertise* dan anda tau apa yang anda lakukan.
 
-> Di sinilah masalah kecil yang menjadi besar hanya karena 
+> Di sinilah masalah kecil yang menjadi besar hanya karena modifikasi MySQL dan Apache *port* ke *value* lain dari yang semestinya. 
