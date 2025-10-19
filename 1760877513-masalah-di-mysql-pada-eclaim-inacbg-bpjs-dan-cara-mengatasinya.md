@@ -6,4 +6,8 @@ created: 2025-09-19
 ---
 # Masalah di MySQL pada ECLAIM (INACBG) BPJS dan Cara Mengatasinya
 
-Di sini adalah langkah-langkah yang saya lakukan untuk mengatasi masalah yang berkaitan dengan MySQL di ECLAIM yang mana basisnya menggunakan XAMPP yang di *self hosted* pada komputer atau server
+Di sini adalah langkah-langkah yang saya lakukan untuk mengatasi masalah yang berkaitan dengan MySQL di ECLAIM yang mana basisnya menggunakan XAMPP yang di *self hosted* pada komputer atau server sendiri.
+
+Cerita sedikit latar
+## Blocking port
+
