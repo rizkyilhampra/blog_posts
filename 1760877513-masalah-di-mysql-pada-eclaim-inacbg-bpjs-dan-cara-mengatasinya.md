@@ -78,7 +78,6 @@ Namun, coba lakukan pemeriksaan di bagian berikut. Ini berguna untuk mengetaui a
 ```conf
 # C:/xampp/mysql/bin/my.ini
 
-
 [mysqld]
 # datadir = "/xampp/mysql/data"
 datadir = "c:/E-Klaim/data"
@@ -91,14 +90,11 @@ innodb_log_group_home_dir = "/E-Klaim/data"
 #innodb_log_arch_dir = "/xampp/mysql/data"
 ```
 
-
 ## Cek alias
 
-```bash
-C:/xampp/apache/conf/extra/apache-xampp.conf
-```
-
 ```conf
+# C:/xampp/apache/conf/extra/apache-xampp.conf
+
     Alias /E-Klaim "C:/E-Klaim"
     <Directory "C:/E-Klaim">
         AllowOverride AuthConfig
@@ -113,25 +109,4 @@ C:/xampp/apache/conf/extra/apache-xampp.conf
     AliasMatch (?i)^/eclaim(.*) /E-Klaim$1
 ```
 
-```conf
-#
-# Listen: Allows you to bind Apache to specific IP addresses and/or
-# ports, instead of the default. See also the <VirtualHost>
-# directive.
-#
-# Change this to Listen on specific IP addresses as shown below to 
-# prevent Apache from glomming onto all bound IP addresses.
-#
-#Listen 12.34.56.78:80
-Listen 80
-
-
-#
-# ServerName gives the name and port that the server uses to identify itself.
-# This can often be determined automatically, but we recommend you specify
-# it explicitly to prevent problems during startup.
-#
-# If your host doesn't have a registered DNS name, enter its IP address here.
-#
-ServerName localhost:80
-```
+## 
