@@ -1,10 +1,10 @@
 ---
-id: 1760877811-masalah-di-mysql-pada-eclaim-inacbg-bpjs-dan-cara-mengatasinya
-alias: Masalah di MySQL pada ECLAIM (INACBG) BPJS dan Cara Mengatasinya
+id: 1760877811-masalah-xampp-di-eclaim-inacbg-bpjs-dan-cara-mengatasinya
+alias: Masalah XAMPP di ECLAIM (INACBG) BPJS dan Cara Mengatasinya
 tags: []
 created: 2025-09-19
 ---
-# Masalah di MySQL pada ECLAIM (INACBG) BPJS dan Cara Mengatasinya
+# Masalah XAMPP di ECLAIM (INACBG) BPJS dan Cara Mengatasinya
 
 Di sini adalah langkah-langkah yang saya lakukan untuk mengatasi masalah yang berkaitan dengan MySQL di ECLAIM yang mana basisnya menggunakan XAMPP yang *self hosted* pada komputer atau server sendiri.
 
@@ -109,4 +109,10 @@ innodb_log_group_home_dir = "/E-Klaim/data"
     AliasMatch (?i)^/eclaim(.*) /E-Klaim$1
 ```
 
-## 
+## Cek Service XAMPP
+
+Penggunaan *service* di XAMPP mungkin sah sah aja, akan tetapi ini akan terkendala untuk orang awam. Service akan membuat Apache dan MySQL akan dapat berjalan di *background* dan juga otomatis menyala setelah *restart* komputer tanpa perlu adanya interaksi kembali dengan XAMPP Control Panel. 
+
+Di kasus ini, *user* melaporkan adanya pesan "Failed empty result" saat mencoba *grouping* INACBG. Setelah mencari informasi mulai dari 'juknis' sampai ke komunitas. Saya menemukan bahwa salah satu masalahnya ada di '*service*' ini. Jadi jika mengalami hal demikian, coba pastikan untuk tidak ada tanda centang hijau pada bagian kiri atau semuanya harus dalam kondisi tanda silang merah. Jika masih sama saja, baru lakukan cek terkait *timezone* dan *region* di Windows *settings*, yang mana seharusnya adalah "Indonesia".
+
+> *Timezone* dan *region* *setting* ini ada di 'juknis', terkecuali masalah *service* tadi. Sebagai catatan juga untuk pihak yang bertanggung jawab dengan ini, untuk menulis dokumentasi selengkap-lengkapnya. 
