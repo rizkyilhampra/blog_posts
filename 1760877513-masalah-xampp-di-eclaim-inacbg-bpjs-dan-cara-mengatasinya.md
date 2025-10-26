@@ -6,7 +6,7 @@ created: 2025-09-19
 ---
 # Masalah XAMPP di ECLAIM (INACBG) BPJS dan Cara Mengatasinya
 
-Di sini adalah langkah-langkah yang saya lakukan untuk mengatasi masalah di ECLAIM yang mana basisnya menggunakan XAMPP yang *self hosted* pada komputer atau server sendiri.
+Di sini adalah langkah-langkah yang saya lakukan untuk mengatasi masalah di ECLAIM yang mana basisnya menggunakan XAMPP yang *self hosted* pada komputer atau server internal.
 
 > Yap, jika ada yang berencana untuk *targeting attack* ke suatu rumah sakit, ada cara yang bisa dilakukan, salah satunya cari di mana ECLAIM berada. Tidak sedikit dari rumah sakit yang juga melakukan *tunneling* untuk *expose* aplikasi ini ke internet (umumnya menggunakan *service* dari [ngrok](https://ngrok.io)). 
 > 
